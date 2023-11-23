@@ -76,13 +76,14 @@ public class SauceDemoTest {
         String actual = completeTextElement.getText();
         String expected = "Your order has been dispatched, and will arrive just as fast as the pony can get there!";
         Assert.assertEquals(actual.trim(), expected.trim(), "something doesn't work");
-        System.out.println("");
+        WebElement burger = driver.findElement(By.className("bm-burger-button"));
+        burger.click();
+        WebElement logout = wait.until(ExpectedConditions.elementToBeClickable(By.id("logout_sidebar_link")));
+        logout.click();
+        String actualURL =driver.getCurrentUrl();
+        Assert.assertEquals(actualURL, "https://www.saucedemo.com/v1/index.html", "Wrong page ");
 
-
-
-
-
-
+        System.out.println(" ");
 
     }
 

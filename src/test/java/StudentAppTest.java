@@ -44,8 +44,10 @@ public class StudentAppTest {
         logger.info("Will open now: " + getConfiguration().getString("app.url"));
         LocalDriverManager.getInstance().get(getConfiguration().getString("app.url"));
         mainPage.openAddStudentForm();
-
         addStudentPage.submitStudent();
+        addStudentPage.submitStudent();
+
+
         System.out.println(" ");
 
 
@@ -53,6 +55,8 @@ public class StudentAppTest {
 
     @AfterMethod
     public void tearDown() {
+
         LocalDriverManager.closeDriver();
     }
+    //проверяю работает ли гитхаб
 }

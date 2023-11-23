@@ -6,13 +6,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class MainPage {
 
-    ChromeDriver driver= LocalDriverManager.getInstance();
+    ChromeDriver driver = LocalDriverManager.getInstance();
 
+    private final By addStudentButton = By.id("addStudentButton");
 
-
-    private final By addStudentButton= By.id("addStudentButton");
-
-    public void openAddStudent(){
+    public void openAddStudentForm() {
         driver.findElement(addStudentButton).click();
     }
 }

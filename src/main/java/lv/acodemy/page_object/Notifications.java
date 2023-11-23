@@ -4,33 +4,26 @@ import lv.acodemy.utils.LocalDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.textToBePresentInElement;
 
 public class Notifications {
-
-    ChromeDriver driver= LocalDriverManager.getInstance();
+    ChromeDriver driver = LocalDriverManager.getInstance();
     WebDriverWait waiter;
 
-
-    public Notifications(ChromeDriver driver,WebDriverWait wait) {
-
-        this.waiter= wait;
+    public Notifications(WebDriverWait wait) {
+        this.waiter = wait;
     }
 
-    private final By notificationMessage= By.className("ant-notification-notice-message");
+    private final By notificationMessage = By.className("ant-notification-notice-message");
 
-    public WebElement getNotificationLocator(){
+    public WebElement getNotificationLocator() {
         return driver.findElement(notificationMessage);
     }
-    public String getNotificationSuccessMessage(){
-        waiter.until(textToBePresentInElement(getNotificationLocator(),"Student successfully added"));
+
+    public String getNotificationSuccessMessage() {
+        waiter.until(textToBePresentInElement(getNotificationLocator(), "Student successfully added"));
         return getNotificationLocator().getText();
-
     }
-
-
 }

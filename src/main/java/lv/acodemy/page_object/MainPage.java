@@ -9,8 +9,14 @@ public class MainPage {
     ChromeDriver driver = LocalDriverManager.getInstance();
 
     private final By addStudentButton = By.id("addStudentButton");
+    private final By editButton = By.xpath("//*[@id=\"root\"]/section/section/main/div/div/div/div/div/div[2]/div/table/tbody/tr[4]/td[6]/div/label[2]/span[2]");
 
     public void openAddStudentForm() {
+
         driver.findElement(addStudentButton).click();
     }
+    public void useEditButton(){
+        driver.findElement(editButton).click();
+    }
+
 }

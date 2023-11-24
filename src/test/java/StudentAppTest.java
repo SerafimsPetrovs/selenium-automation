@@ -45,13 +45,26 @@ public class StudentAppTest {
         LocalDriverManager.getInstance().get(getConfiguration().getString("app.url"));
         mainPage.openAddStudentForm();
         addStudentPage.submitStudent();
-        addStudentPage.submitStudent();
-
-
+        assertThat(notifications.getErrorMessageText()).isEqualTo("Please enter student name");
         System.out.println(" ");
-
-
     }
+    @Test
+    public void editTest() {
+        LocalDriverManager.getInstance().manage().timeouts().implicitlyWait(ofSeconds(getConfiguration().getLong("wait.time")));
+        logger.info("Will open now: " + getConfiguration().getString("app.url"));
+        LocalDriverManager.getInstance().get(getConfiguration().getString("app.url"));
+
+        mainPage.useEditButton();
+
+        //addStudentPage.clearNameField();
+        addStudentPage.useChangeName("Quentin Dick");
+
+        addStudentPage.submitStudent();
+        //assertThat(notifications.getNotification()).isEqualTo("Student update was successful");
+    }
+
+
+
 
     @AfterMethod
     public void tearDown() {
@@ -59,4 +72,5 @@ public class StudentAppTest {
         LocalDriverManager.closeDriver();
     }
     //проверяю работает ли гитхаб
+    //span[text()='Submit']//parent::button
 }

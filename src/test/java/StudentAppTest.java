@@ -56,7 +56,7 @@ public class StudentAppTest {
 
         mainPage.useEditButton();
 
-        //addStudentPage.clearNameField();
+        addStudentPage.clearNameField();
         addStudentPage.useChangeName("Quentin Dick");
 
         addStudentPage.submitStudent();
@@ -73,4 +73,5 @@ public class StudentAppTest {
     }
     //проверяю работает ли гитхаб
     //span[text()='Submit']//parent::button
+    // еще один тест гита
 }

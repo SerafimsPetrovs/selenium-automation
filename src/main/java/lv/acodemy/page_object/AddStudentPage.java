@@ -2,6 +2,7 @@ package lv.acodemy.page_object;
 
 import lv.acodemy.utils.LocalDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Sleeper;
 
@@ -22,13 +23,14 @@ public class AddStudentPage {
     }
 
     public void useChangeName(String input2){
-        driver.findElement(changeName).clear();
 
         driver.findElement(changeName).sendKeys(input2);
     }
 
     public void clearNameField(){
-        driver.findElement(clearName).clear();
+        JavascriptExecutor jse = driver;
+        jse.executeScript(("document.getElementById('name').value='value here'"));
+
     }
 
     public void setMailField(String input) {
